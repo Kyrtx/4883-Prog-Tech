@@ -1,4 +1,3 @@
-#### Assignment 1 - Establishing Comms
+## Assignment 1 - Establishing Comms
 
-## Signed into Slack
-## Filled Out Comms Form
+#### Signed into Slack<br />Filled Out Comms Form

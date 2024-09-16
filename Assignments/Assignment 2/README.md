@@ -1,3 +1,3 @@
-#### Assignment 2 - Code Repository
+## Assignment 2 - Code Repository
 
-## Code Repository Made
+#### Code Repository Made
