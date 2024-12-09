@@ -1,6 +1,13 @@
+# Assignment 4 
+**Name: Jesus Mendoza**
+
+**Date: 08 Dec 2024**
+
+**Class: 2143 OOP**
+
 # Object-Oriented Programming Concepts in C++
 
-This document provides definitions and examples of key Object-Oriented Programming (OOP) concepts with C++ examples where applicable.
+This document provides definitions and examples of key Object-Oriented Programming (OOP) concepts with C++ examples.
 
 ---
 
@@ -593,6 +600,8 @@ int main() {
 ## UML Diagrams and Modeling
 **Definition**: Unified Modeling Language (UML) is a visual way to design and represent object-oriented systems, such as class diagrams.
 ![UML Diagrams and Modeling](UML-Diagrams.jpg)
+
+
 <sub>image source: https://www.geeksforgeeks.org/unified-modeling-language-uml-introduction/</sub>
 
 ## Virtual

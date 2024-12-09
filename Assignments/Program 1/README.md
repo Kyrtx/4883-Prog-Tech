@@ -2,7 +2,7 @@
 ### Jesus Mendoza
 
 ### Description:
-This project implements a `Fraction` class in C++ that allows for basic arithmetic operations between fractions using operator overloading. You can add, subtract, multiply, and divide fractions by using the `+`, `-`, `*`, and `/` operators. It also supports comparing fractions for equality with the `==` operator. The class simplifies fractions to their lowest terms automatically and ensures the denominator is positive. Special cases, like division by zero, are handled to avoid runtime errors.
+This project implements a `Fraction` class in C++ that allows for basic arithmetic operations between fractions using operator overloading. You can add, subtract, multiply, and divide fractions by using the `+`, `-`, `*`, and `/` operators. It also supports comparing fractions for equality with the `==` operator. The class simplifies fractions to their lowest terms automatically and ensures the denominator is positive.
 
 ### Files
 
