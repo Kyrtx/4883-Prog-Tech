@@ -1,3 +1,7 @@
 ## Assignment 1 - Establishing Comms
 
-#### - [x] Signed into Slack<br /> - [x] Filled Out Comms Form
+### Jesus Mendoza
+
+- [x] Signed into slack
+
+- [x] Filled Out Comms Form

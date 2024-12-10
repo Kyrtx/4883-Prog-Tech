@@ -9,8 +9,6 @@
 
 This document provides definitions and examples of key Object-Oriented Programming (OOP) concepts with C++ examples.
 
----
-
 ## Abstract Classes and Interfaces
 **Definition**: Abstract classes serve as blueprints for derived classes. They cannot be instantiated. They may include pure virtual functions (`= 0`) that derived classes must override.
 
