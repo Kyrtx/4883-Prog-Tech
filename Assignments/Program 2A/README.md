@@ -9,7 +9,4 @@
 
 |                              Screen Shot                              |
 | :-------------------------------------------------------------------: |
-| <img width=600 src="nCursesTest.png"> |
-
-
-![Ncurses Test](nCursesTest.png)
+| <img width=600 src="Screenshot 2024-12-10 225424.png"> |
