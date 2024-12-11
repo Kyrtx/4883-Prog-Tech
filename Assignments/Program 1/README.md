@@ -9,7 +9,6 @@ This project implements a `Fraction` class in C++ that allows for basic arithmet
 |   #   | File                               | Description                                                             |
 | :---: | ---------------------------------- | ----------------------------------------------------------------------- |
 |   1   | [FractionHW - CMPS 2143.cpp](FractionHW%20-%20CMPS%202143.cpp) | Contains the implementation of the `Fraction` class and the main driver.|
-|   2   | README.md                          | This file that provides an overview of the project and usage instructions.|
 
 ### Instructions
 

@@ -1,3 +1,41 @@
+/*****************************************************************************
+*
+*  Author:           Jesus Mendoza
+*  Email:            jesus.kyx.mendoza11@gmail.com
+*  Label:            Program 2C - Knucklebones Game
+*  Title:            Knucklebones Game with Dice Animation and Scoring
+*  Course:           CMPS 2143 
+*  Semester:         Fall 2024
+*
+*  Description:
+*        This program is a digital recreation of the dice-based game 
+*        "Knucklebones." Players take turns rolling dice and strategically 
+*        placing them in a 3x3 grid to maximize their score. The game includes 
+*        animations for rolling dice, visual representation of dice faces, and 
+*        dynamic score calculation based on grid placement rules.
+*
+*        The game alternates between two players for a total of 18 turns (9 
+*        per player), and the player with the highest score at the end wins. 
+*        The program utilizes the SFML library for graphics rendering and 
+*        animations.
+*
+*  Usage:
+*        - Run the program to start the game.
+*        - Press 'R' to roll the dice on your turn.
+*        - Use the left mouse button to click a column in your grid to place 
+*          the dice.
+*        - Play alternates between two players until all grid spaces are filled.
+*
+*  Files:            
+*        main.cpp                           : Contains the main logic and game loop.
+*        images/                            : Directory containing all image assets.
+*          - frame_001.png to frame_024.png : Dice animation frames.
+*          - 1.png to 6.png                 : Dice face images.
+*          - knuckleboneslogo.jpg           : Game logo.
+*         arial.ttf                         : Font file for rendering text.
+*
+*****************************************************************************/
+
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 #include <SFML/System.hpp>
