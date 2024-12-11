@@ -1,4 +1,4 @@
-## P02 - Knucklebones Program  
+## Program 2C - Knucklebones Program  
 ### Author: Jesus Mendoza 
 ### Description:  
 

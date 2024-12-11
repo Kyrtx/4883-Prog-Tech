@@ -9,7 +9,7 @@
 *
 *  Description:
 *        This program is a digital recreation of the dice-based game 
-*        "Knucklebones." Players take turns rolling dice and strategically 
+*        "Knucklebones." Players take turns rolling dice and  
 *        placing them in a 3x3 grid to maximize their score. The game includes 
 *        animations for rolling dice, visual representation of dice faces, and 
 *        dynamic score calculation based on grid placement rules.
@@ -46,17 +46,54 @@
 #include <ctime>
 #include <iostream>
 
+// Standard namespaces for convenience
 using namespace std;
 
+/**
+ * Class Name: DiceAnimation
+ *
+ * Description:
+ *      Handles the animation of dice rolling by iterating through preloaded frames.
+ *
+ * Public Methods:
+ *      - DiceAnimation(float duration)
+ *      - void update(float deltaTime)
+ *      - void draw(sf::RenderWindow& window, sf::Vector2f position)
+ *
+ * Private Members:
+ *      - sf::Sprite sprite
+ *      - sf::Texture texture
+ *      - std::vector<sf::Texture> frames
+ *      - int currentFrame
+ *      - float frameDuration
+ *      - float currentTime
+ *
+ * Usage:
+ *      DiceAnimation diceAnimation(1.0f); // Create animation object
+ *      diceAnimation.update(deltaTime);  // Update animation based on elapsed time
+ *      diceAnimation.draw(window, position); // Render the current frame
+ */
 class DiceAnimation {
-    sf::Sprite sprite;
-    sf::Texture texture;
-    std::vector<sf::Texture> frames;
-    int currentFrame;
-    float frameDuration;
-    float currentTime;
+    sf::Sprite sprite;                // Sprite to display the current frame
+    sf::Texture texture;              // Texture for the sprite
+    std::vector<sf::Texture> frames;  // Vector storing animation frames
+    int currentFrame;                 // Current frame index
+    float frameDuration;              // Duration of each frame in seconds
+    float currentTime;                // Tracks elapsed time for frame switching
 
 public:
+        /**
+     * Public : DiceAnimation
+     *
+     * Description:
+     *      Initializes the dice animation by loading a series of frames and setting the frame duration.
+     *
+     * Params:
+     *      - float duration : Total duration of the animation in seconds.
+     *
+     * Returns:
+     *      - None
+     */
     DiceAnimation(float duration)
         : currentFrame(0), frameDuration(duration / 24), currentTime(0) {
         for (int i = 1; i <= 24; ++i) {
@@ -72,26 +109,82 @@ public:
         sprite.setTexture(frames[0]);
     }
 
+        /**
+     * Public : update
+     *
+     * Description:
+     *      Advances the animation based on elapsed time, cycling through the frames.
+     *
+     * Params:
+     *      - float deltaTime : Time passed since the last update (in seconds).
+     *
+     * Returns:
+     *      - None
+     */
     void update(float deltaTime) {
         currentTime += deltaTime;
         if (currentTime >= frameDuration) {
             currentTime -= frameDuration;
-            currentFrame = (currentFrame + 1) % 24;
+            currentFrame = (currentFrame + 1) % 24;  // Loop back to first frame
             sprite.setTexture(frames[currentFrame]);
         }
     }
 
+        /**
+     * Public : draw
+     *
+     * Description:
+     *      Draws the current frame of the animation at a specified position in the window.
+     *
+     * Params:
+     *      - sf::RenderWindow& window : The window where the animation is rendered.
+     *      - sf::Vector2f position : Position to draw the animation.
+     *
+     * Returns:
+     *      - None
+     */
     void draw(sf::RenderWindow& window, sf::Vector2f position) {
         sprite.setPosition(position);
         window.draw(sprite);
     }
 };
 
+/**
+ * Class Name: DiceFace
+ *
+ * Description:
+ *      Manages the display of a single dice face using textures.
+ *
+ * Public Methods:
+ *      - void setFace(int value)
+ *      - void draw(sf::RenderWindow& window, sf::Vector2f position)
+ *
+ * Private Members:
+ *      - sf::Sprite sprite
+ *      - sf::Texture texture
+ *
+ * Usage:
+ *      DiceFace diceFace;
+ *      diceFace.setFace(6); // Set dice face to show the value 6
+ *      diceFace.draw(window, position); // Draw the dice face
+ */
 class DiceFace {
     sf::Sprite sprite;
     sf::Texture texture;
 
 public:
+        /**
+     * Public : setFace
+     *
+     * Description:
+     *      Sets the texture of the dice face based on the given value.
+     *
+     * Params:
+     *      - int value : The dice face value (1-6).
+     *
+     * Returns:
+     *      - None
+     */
     void setFace(int value) {
         if (!texture.loadFromFile("images/" + to_string(value) + ".png")) {
             cerr << "Error loading dice face: " << value << endl;
@@ -100,30 +193,105 @@ public:
         sprite.setTexture(texture);
     }
 
+        /**
+     * Public : draw
+     *
+     * Description:
+     *      Draws the dice face at a specified position in the window.
+     *
+     * Params:
+     *      - sf::RenderWindow& window : The window where the dice face is rendered.
+     *      - sf::Vector2f position : Position to draw the dice face.
+     *
+     * Returns:
+     *      - None
+     */
     void draw(sf::RenderWindow& window, sf::Vector2f position) {
         sprite.setPosition(position);
         window.draw(sprite);
     }
 };
 
+/**
+ * Class Name: Dice
+ *
+ * Description:
+ *      Simulates a dice roll to generate random values.
+ *
+ * Public Methods:
+ *      - Dice()
+ *      - int roll()
+ *
+ * Usage:
+ *      Dice dice;
+ *      int result = dice.roll(); // Roll the dice and get a value between 1 and 6
+ */
 class Dice {
 public:
-    Dice() { srand(static_cast<unsigned>(time(0))); }
+        /**
+     * Public : Dice
+     *
+     * Description:
+     *      Initializes the random number generator for dice rolls.
+     *
+     * Params:
+     *      - None
+     *
+     * Returns:
+     *      - None
+     */
+    Dice() { srand(static_cast<unsigned>(time(0))); }  
 
-    int roll() { return rand() % 6 + 1; }
+        /**
+     * Public : roll
+     *
+     * Description:
+     *      Generates a random number between 1 and 6 to simulate a dice roll.
+     *
+     * Params:
+     *      - None
+     *
+     * Returns:
+     *      - int : The rolled dice value (1-6).
+     */
+    int roll() { return rand() % 6 + 1; }  // Returns a random value between 1 and 6
 };
 
+/**
+ * Class Name: Grid
+ *
+ * Description:
+ *      Represents a 3x3 grid for dice placement and score calculation.
+ *
+ * Public Methods:
+ *      - Grid()
+ *      - void clearGrid()
+ *      - bool placeDice(int col, int value)
+ *      - int calculateScore() const
+ *      - void render(sf::RenderWindow& window, sf::Vector2f position, sf::Color color)
+ *
+ * Private Members:
+ *      - int cells[3][3]
+ *
+ * Usage:
+ *      Grid grid;
+ *      grid.placeDice(1, 5); // Place a dice with value 5 in column 1
+ *      int score = grid.calculateScore(); // Calculate the score of the grid
+ *      grid.render(window, position, color); // Render the grid
+ */
 class Grid {
-    int cells[3][3];
+    int cells[3][3];  // 3x3 grid to store dice values
 
 public:
-    Grid() { clearGrid(); }
+    Grid() { clearGrid(); }  // Initialize the grid
 
+    // Resets all cells in the grid to zero
     void clearGrid() {
         for (auto& row : cells)
             fill(row, row + 3, 0);
     }
 
+    // Places a dice value in the specified column if space is available
     bool placeDice(int col, int value) {
         for (int row = 2; row >= 0; --row) {
             if (cells[row][col] == 0) {
@@ -131,21 +299,24 @@ public:
                 return true;
             }
         }
-        return false;
+        return false;  // Column is full
     }
 
+    // Calculates the total score based on grid values
     int calculateScore() const {
         int total = 0;
         for (int col = 0; col < 3; ++col) {
             int product = 0;
             int counts[6] = {0};
 
+            // Count occurrences of each dice value in the column
             for (int row = 0; row < 3; ++row) {
                 if (cells[row][col] != 0) {
                     counts[cells[row][col] - 1]++;
                 }
             }
 
+            // Calculate column score using dice values and counts
             for (int i = 0; i < 6; ++i) {
                 if (counts[i] > 0) {
                     product += counts[i] * (i + 1) * counts[i];
@@ -157,8 +328,9 @@ public:
         return total;
     }
 
+    // Renders the grid on the screen with its dice values
     void render(sf::RenderWindow& window, sf::Vector2f position, sf::Color color) {
-        sf::RectangleShape cell(sf::Vector2f(60, 60));
+        sf::RectangleShape cell(sf::Vector2f(60, 60));  // Individual cell size
         cell.setOutlineColor(color);
         cell.setOutlineThickness(2);
 
@@ -188,6 +360,7 @@ public:
     }
 };
 
+// Player class to track name and score
 class Player {
     string name;
     int score;
@@ -200,21 +373,48 @@ public:
     string getName() const { return name; }
 };
 
+/**
+ * Class Name: Game
+ *
+ * Description:
+ *      Manages the game flow, including turns, dice rolls, and grid updates.
+ *
+ * Public Methods:
+ *      - Game()
+ *      - void play()
+ *      - void takeTurn(sf::RenderWindow& window, const sf::Vector2f& grid1Position, const sf::Vector2f& grid2Position, sf::Text& infoText)
+ *      - void checkGameOver()
+ *      - void endGame(sf::RenderWindow& window)
+ *
+ * Private Members:
+ *      - Player player1, player2
+ *      - Grid grid1, grid2
+ *      - Dice dice
+ *      - int turn
+ *      - bool running
+ *      - bool isValidClick(sf::Vector2i mousePos, const sf::Vector2f& gridPosition)
+ *
+ * Usage:
+ *      Game game;
+ *      game.play(); // Starts the game
+ */
 class Game {
-    Player player1, player2;
-    Grid grid1, grid2;
-    Dice dice;
-    int turn;
-    bool running;
+    Player player1, player2;        // Two players
+    Grid grid1, grid2;              // Grids for each player
+    Dice dice;                      // Dice object for rolling
+    int turn;                       // Current turn number
+    bool running;                   // Game running status
 
+    // Validates if a mouse click is within the grid boundaries
     bool isValidClick(sf::Vector2i mousePos, const sf::Vector2f& gridPosition) {
-        sf::FloatRect gridBounds(gridPosition.x, gridPosition.y, 3 * 70, 3 * 70); // 3x3 grid, 70px cell
+        sf::FloatRect gridBounds(gridPosition.x, gridPosition.y, 3 * 70, 3 * 70);  // 3x3 grid, 70px cell
         return gridBounds.contains(static_cast<sf::Vector2f>(mousePos));
     }
 
 public:
     Game() : player1("Player 1"), player2("Player 2"), turn(0), running(true) {}
 
+    // Game loop handling events, rendering, and player turns
     void play() {
         sf::RenderWindow window(sf::VideoMode(800, 600), "Knucklebones Game");
 

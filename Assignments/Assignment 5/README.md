@@ -1,10 +1,14 @@
-## Getting it Installed & Set up
+## Assignment 5 - Getting it Installed & Set up
 
 **Name: Jesus Mendoza**
 
 **Date: 08 Dec 2024**
 
 **Class: 2143 OOP**
+
+#### Description:
+
+Installing WSL, running sample commands & later screenshotting results.
 
 |                              Screen Shot                              |
 | :-------------------------------------------------------------------: |
