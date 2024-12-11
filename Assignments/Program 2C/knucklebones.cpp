@@ -13,7 +13,7 @@ class Player {
     int score;
 
 public:
-    Player(string n) : name(n), score(0) {}
+    Player(string n) : name(n), score(0) {} 
     void addScore(int s) { score += s; }
     int getScore() const { return score; }
     string getName() const { return name; }
