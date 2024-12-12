@@ -239,7 +239,7 @@ ostream& operator<<(ostream& os, const Fraction& frac) {
     return os;
 }
 
-// Main function for testing or wtv
+// Main function for testing
 int main() {
     Fraction frac1(1, 2);      // Fraction 1/2
     Fraction frac2(3, 4);      // Fraction 3/4
