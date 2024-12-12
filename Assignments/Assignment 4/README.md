@@ -597,7 +597,7 @@ int main() {
 
 ## UML Diagrams and Modeling
 **Definition**: Unified Modeling Language (UML) is a visual way to design and represent object-oriented systems, such as class diagrams.
-![UML Diagrams and Modeling](UML-Diagrams.jpg)
+![UML Diagrams and Modeling](./images/UML-Diagrams.jpg)
 
 
 <sub>image source: https://www.geeksforgeeks.org/unified-modeling-language-uml-introduction/</sub>
